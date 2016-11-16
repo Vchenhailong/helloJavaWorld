@@ -1,0 +1,49 @@
+/**
+* 数据类型
+* 基本类型：8种。int（4字节）、short（2字节）、long（8字节）、byte（1字节）、boolean、char、float（4字节）、double（8字节）
+* 基本类型的特性：float精度（有效位数）在6~7位，double精度（有效位数）在15位
+* 金融计算中，需要用BigDecimal类，而不用float或double
+*/
+
+声明变量后，必须用赋值语句对变量进行显式初始化
+
+运算符 / ，当参与 / 运算的两个操作数都是整数，表示整数除法；否则，表示浮点除法。整数的求余操作（取模）用 % 表示。例如，15/2等于7，15%2等于1，15.0/2等于7.5。
+
+### 二进制运算（可参考http://www.tyut.edu.cn/kecheng1/2008/site04/courseware/chapter1/1-2-2.html）
+*  十进制转换成二进制的方法：十进制数不断的除以2。取模（余数）为0时则记为1，否则记为0
+*  二进制-原码、反码、补码 
+*  二进制逻辑运算-与、或、异或
+
+### 接收输入内容：scanner类
+* Demo1  明文读取
+```
+import java.util.*
+
+public class InputTest {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.ou.println("who r U?");
+        String name = in.nextLine();
+        System.out.println("How old r U");
+        int age = in.nextInt();
+    }
+}
+```
+
+* Demo2  密码一类业务的处理
+```
+Console cons = System.console();
+String username = cons.readLine("User name:");
+char[] passwd = cons.readPassword("Password:");  // 为了安全，返回的密码存放在一堆字符数组中，且对密码处理后，应马上用个填充值覆盖数组元素。该方法每次只能读取一行输入值                                                                                                                      
+```
+
+### 文件输入与输出
+* 读取文件
+  Scanner in = new Scanner(new File("c:\\dir\\file.txt"));
+
+* 写入文件
+  PrintWriter out = new PrinterWriter("c:\\dir\\file.txt"));
+  
+* 读取IDE启动路径下的文件
+  String dir = System.getProperty("user.dir");
+
